@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Tập 04 - Correct Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        /* TẠO DÒNG KẺ DƯỚI TIÊU ĐỀ */
+        .section-header {
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px solid #999; /* Đường kẻ nằm dưới chữ */
+            margin-bottom: 15px;
+            padding-bottom: 3px;
+            margin-top: 20px;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+
+        .row label {
+            width: 160px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .row input[type="text"], 
+        .row input[type="email"], 
+        .row select {
+            flex: 1;
+            padding: 3px;
+            border: 1px solid #999;
+            height: 22px;
+        }
+
+        /* Gender Radio */
+        .gender-options {
+            display: flex;
+            flex-direction: column;
+        }
+        .gender-options label {
+            font-weight: normal;
+            width: auto;
+        }
+
+        /* Editor cho phần Notes */
+        .editor-container {
+            flex: 1;
+            border: 1px solid #999;
+        }
+        .toolbar {
+            background: #eee;
+            border-bottom: 1px solid #999;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        textarea {
+            width: 100%;
+            border: none;
+            padding: 5px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        /* Captcha */
+        .captcha-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .captcha-img {
+            font-family: "Courier New", monospace;
+            font-size: 24px;
+            letter-spacing: 10px;
+            color: #777;
+        }
+        .click-change {
+            font-size: 11px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+        .btn {
+            padding: 4px 12px;
+            color: #fff;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+        .btn-submit { background: #333; }
+        .btn-cancel { background: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form>
+        <div class="section-header">Basic Info</div>
+        
+        <div class="row">
+            <label>Employee ID</label>
+            <span>9</span>
+        </div>
+        <div class="row">
+            <label>Last Name</label>
+            <input type="text" value="Dodsworth">
+        </div>
+        <div class="row">
+            <label>First Name</label>
+            <input type="text" value="Anne">
+        </div>
+        <div class="row" style="align-items: flex-start;">
+            <label>Gender</label>
+            <div class="gender-options">
+                <label><input type="radio" name="g"> Male</label>
+                <label><input type="radio" name="g"> Female</label>
+                <label><input type="radio" name="g"> XXX</label>
+                <label><input type="radio" name="g" checked> ZZZ</label>
+            </div>
+        </div>
+        <div class="row">
+            <label>Title</label>
+            <input type="text" value="Sales Representative">
+        </div>
+        <div class="row">
+            <label>Suffix</label>
+            <input type="text" value="Ms.">
+        </div>
+        <div class="row">
+            <label>BirthDate</label>
+            <input type="text" value="1969-07-02 00:00:00"> <span>(?)</span>
+        </div>
+        <div class="row">
+            <label>HireDate</label>
+            <input type="text" value="1994-11-15 00:00:00">
+        </div>
+        <div class="row">
+            <label>SSN # (if applicable)</label>
+            <input type="text">
+        </div>
+        <div class="row">
+            <label>Reports To</label>
+            <select>
+                <option>Buchanan</option>
+            </select>
+        </div>
+
+        <div class="section-header">Contact Info</div>
+        
+        <div class="row">
+            <label>Email</label>
+            <input type="email" placeholder="name@example.com">
+        </div>
+        <div class="row">
+            <label>Address</label>
+            <input type="text" value="7 Houndstooth Rd.">
+        </div>
+        <div class="row">
+            <label>City</label>
+            <input type="text" value="London">
+        </div>
+        <div class="row">
+            <label>Region</label>
+            <input type="text">
+        </div>
+        <div class="row">
+            <label>Postal Code</label>
+            <input type="text" value="WG2 7LT">
+        </div>
+        <div class="row">
+            <label>Country</label>
+            <select>
+                <option>Russian Federation</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>US Home Phone</label>
+            <input type="text" value="(234)234-2342">
+        </div>
+        <div class="row">
+            <label>Photo</label>
+            <input type="text" value="EmpID9.bmp">
+        </div>
+
+        <div class="section-header">Optional Info</div>
+        
+        <div class="row" style="align-items: flex-start;">
+            <label>Notes</label>
+            <div class="editor-container">
+                <div class="toolbar">
+                    <b>B</b> <i>I</i> <s>S</s> <u>U</u> | ≡ ≣ | 🔗 | x₂ x² | ↩ ↪
+                </div>
+                <textarea rows="5">Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.ZZZ</textarea>
+            </div>
+        </div>
+        <div class="row">
+            <label>Preferred Shift</label>
+            <label style="width:auto; font-weight:normal; margin-right:10px;"><input type="checkbox"> Regular</label>
+            <label style="width:auto; font-weight:normal;"><input type="checkbox" checked> Gravy Yard</label>
+        </div>
+        <div class="row">
+            <label>Active?</label>
+            <input type="checkbox" checked style="width:auto;">
+        </div>
+        <div class="row" style="align-items: flex-start;">
+            <label>Are you human?</label>
+            <div class="captcha-box">
+                <div class="captcha-img">T I D A W O</div>
+                <div class="click-change">Click to change</div>
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="footer">
+            <button type="submit" class="btn btn-submit">Submit</button>
+            <button type="button" class="btn btn-cancel">Cancel</button>
+        </div>
+        <div style="font-size:11px; margin-top:5px;">* required</div>
+    </form>
+</div>
+
+</body>
+</html>
