@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Goals</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#4b0d40;
+}
+
+.wrapper{
+    width:90%;
+    margin:30px auto;
+    border:4px solid #ff66cc;
+}
+
+header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#ffd84d;
+    font-weight:bold;
+    font-size:22px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#ffd84d;
+    font-weight:bold;
+}
+
+.logo{
+    color:#ffd84d;
+    font-weight:bold;
+    font-size:22px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#ffd84d;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.hero{
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
+    height:450px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.hero-box{
+    background:rgba(0,0,0,0.65);
+    color:white;
+    padding:40px 60px;
+    text-align:center;
+    border-radius:8px;
+}
+
+.hero-box h1{
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+.hero-box p{
+    margin-bottom:20px;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.hero-box button{
+    background:#ffd84d;
+    border:none;
+    padding:10px 25px;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+main{
+    background:#cde8e6;
+    padding:50px 20px;
+    text-align:center;
+}
+
+main h2{
+    margin-bottom:30px;
+    letter-spacing:3px;
+    color:#333;
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:300px;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.card p{
+    padding:15px;
+    font-size:14px;
+}
+
+.card span{
+    color:green;
+    font-weight:bold;
+}
+
+footer{
+    background:#111;
+    text-align:center;
+    padding:25px;
+    color:white;
+    font-size:22px;
+}
+
+footer span{
+    margin:0 20px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <section class="hero">
+
+        <header>
+            <div class="logo">TRAVEL GOALS</div>
+            <nav>
+                <a href="#">Destinations</a>
+                <a href="#">About</a>
+            </nav>
+        </header>
+
+        <div class="hero-box">
+            <h1>JOE'S TRAVEL PAGE</h1>
+            <p>LET'S EXPLORE THE WORLD TOGETHER</p>
+            <button>Discover places</button>
+        </div>
+
+    </section>
+
+    <main>
+        <h2>HIGHLIGHTS</h2>
+
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
+                <p>MIAMI <span>USA</span></p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b">
+                <p>MUNICH <span>GERMANY</span></p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+                <p>BARCELONA <span>SPAIN</span></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span>📷</span>
+        <span>📘</span>
+    </footer>
+
+</div>
+
+</body>
+</html>
