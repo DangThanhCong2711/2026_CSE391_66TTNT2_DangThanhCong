@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đặt Hàng</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 30px auto; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], input[type="date"], select, textarea {
+            width: 100%; padding: 10px; box-sizing: border-box; outline: none; border: 1px solid #ccc; border-radius: 4px;
+        }
+        .error-border { border-color: #dc3545 !important; background-color: #fff8f8; }
+        .success-border { border-color: #28a745 !important; }
+        .error { color: #dc3545; font-size: 13px; display: block; margin-top: 5px; }
+        .char-count { font-size: 12px; color: #666; text-align: right; margin-top: 5px; }
+        .char-count.over { color: #dc3545; font-weight: bold; }
+        .radio-group { display: flex; gap: 15px; font-weight: normal; margin-top: 5px; }
+        .total-box { font-size: 18px; font-weight: bold; color: #d9534f; margin: 15px 0; padding: 10px; background: #fdf2f2; border: 1px dashed #d9534f; border-radius: 4px; text-align: center; }
+        button { width: 100%; padding: 12px; font-size: 16px; font-weight: bold; color: white; border: none; border-radius: 4px; cursor: pointer; margin-bottom: 10px; }
+        .btn-submit { background: #007bff; }
+        .btn-submit:hover { background: #0056b3; }
+        .btn-confirm { background: #28a745; }
+        .btn-confirm:hover { background: #218838; }
+        .btn-cancel { background: #6c757d; }
+        .btn-cancel:hover { background: #5a6268; }
+        #confirmBox, #successBox { display: none; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; text-align: center; }
+        .summary-item { text-align: left; margin-bottom: 10px; font-size: 15px; }
+        .summary-item strong { display: inline-block; width: 100px; }
+    </style>
+</head>
+<body>
+
+    <div id="formContainer">
+        <h2>Đặt Hàng Trực Tuyến</h2>
+        <form id="orderForm" novalidate>
+            
+            <div class="form-group" id="group-product">
+                <label for="product">Sản phẩm</label>
+                <select id="product">
+                    <option value="">-- Chọn sản phẩm --</option>
+                    <option value="ao">Áo Sơ Mi</option>
+                    <option value="quan">Quần Jean</option>
+                    <option value="giay">Giày Thể Thao</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="group-quantity">
+                <label for="quantity">Số lượng</label>
+                <input type="number" id="quantity" min="1" max="99" value="1">
+            </div>
+
+            <div class="form-group" id="group-date">
+                <label for="deliveryDate">Ngày giao hàng</label>
+                <input type="date" id="deliveryDate">
+            </div>
+
+            <div class="form-group" id="group-address">
+                <label for="address">Địa chỉ giao hàng</label>
+                <input type="text" id="address" placeholder="Nhập địa chỉ chi tiết">
+            </div>
+
+            <div class="form-group" id="group-notes">
+                <label for="notes">Ghi chú</label>
+                <textarea id="notes" rows="3" placeholder="Ghi chú thêm (không bắt buộc)"></textarea>
+                <div id="charCount" class="char-count">0/200</div>
+            </div>
+
+            <div class="form-group" id="group-payment">
+                <label>Phương thức thanh toán</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="payment" value="COD"> COD</label>
+                    <label><input type="radio" name="payment" value="Chuyển khoản"> Chuyển khoản</label>
+                    <label><input type="radio" name="payment" value="Ví điện tử"> Ví điện tử</label>
+                </div>
+            </div>
+
+            <div class="total-box">Tổng tiền: <span id="totalPrice">0</span> VNĐ</div>
+
+            <button type="submit" class="btn-submit">Tiến Hành Đặt Hàng</button>
+        </form>
+    </div>
+
+    <div id="confirmBox">
+        <h3>Xác Nhận Đặt Hàng?</h3>
+        <div class="summary-item"><strong>Sản phẩm:</strong> <span id="sumProduct"></span></div>
+        <div class="summary-item"><strong>Số lượng:</strong> <span id="sumQty"></span></div>
+        <div class="summary-item"><strong>Ngày giao:</strong> <span id="sumDate"></span></div>
+        <div class="summary-item"><strong>Tổng tiền:</strong> <span id="sumTotal" style="color: #d9534f; font-weight: bold;"></span> VNĐ</div>
+        <br>
+        <button id="btnConfirm" class="btn-confirm">Xác Nhận</button>
+        <button id="btnCancel" class="btn-cancel">Hủy</button>
+    </div>
+
+    <div id="successBox">
+        <h2 style="color: #28a745;">Đặt hàng thành công! 🎉</h2>
+        <p>Cảm ơn bạn đã mua sắm.</p>
+    </div>
+
+    <script src="2.2BTHS4.js"></script>
+</body>
+</html>

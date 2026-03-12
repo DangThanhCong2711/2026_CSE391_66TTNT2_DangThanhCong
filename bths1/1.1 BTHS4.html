@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Điểm Sinh Viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        .input-group input {
+            padding: 8px;
+            font-size: 14px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .row-yeu {
+            background-color: #fff3cd;
+        }
+        .stats {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Quản Lý Điểm Sinh Viên</h2>
+
+    <div class="input-group">
+        <input type="text" id="inputName" placeholder="Nhập họ tên...">
+        <input type="number" id="inputScore" placeholder="Điểm (0-10)" min="0" max="10" step="0.1">
+        <button id="btnAdd">Thêm</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th>Điểm</th>
+                <th>Xếp loại</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="studentBody">
+        </tbody>
+    </table>
+
+    <div class="stats">
+        Tổng số sinh viên: <span id="totalStudents">0</span> | 
+        Điểm trung bình: <span id="averageScore">0.0</span>
+    </div>
+
+    <script src="1.1BTHS4.js"></script>
+</body>
+</html>
