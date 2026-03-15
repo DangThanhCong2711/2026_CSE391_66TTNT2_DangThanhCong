@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Multi Step Form</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+}
+
+.container{
+    width:400px;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.step{
+    display:none;
+}
+
+.step.active{
+    display:block;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+}
+
+button{
+    padding:10px 20px;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#ddd;
+    margin-bottom:20px;
+}
+
+.progress-bar{
+    height:10px;
+    background:green;
+    width:33%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Đăng ký</h2>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<form id="form">
+
+<!-- STEP 1 -->
+<div class="step active">
+
+<h3>Bước 1: Thông tin cá nhân</h3>
+
+<label>Họ tên</label>
+<input type="text" id="name" required>
+
+<label>Ngày sinh</label>
+<input type="date" id="birth" required>
+
+<label>Giới tính</label>
+<select id="gender">
+<option value="">Chọn</option>
+<option>Nam</option>
+<option>Nữ</option>
+</select>
+
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+
+<h3>Bước 2: Tài khoản</h3>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Mật khẩu</label>
+<input type="password" id="password" required>
+
+<label>Xác nhận mật khẩu</label>
+<input type="password" id="confirm" required>
+
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+
+<h3>Bước 3: Xác nhận</h3>
+
+<p id="result"></p>
+
+</div>
+
+<div class="buttons">
+
+<button type="button" onclick="prevStep()">Quay lại</button>
+
+<button type="button" onclick="nextStep()">Tiếp theo</button>
+
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+let currentStep = 0
+const steps = document.querySelectorAll(".step")
+const progressBar = document.getElementById("progressBar")
+
+function showStep(){
+
+steps.forEach(step=>step.classList.remove("active"))
+
+steps[currentStep].classList.add("active")
+
+progressBar.style.width = ((currentStep+1)/steps.length)*100 + "%"
+
+}
+
+function nextStep(){
+
+if(!validateStep()) return
+
+if(currentStep < steps.length-1){
+
+currentStep++
+
+if(currentStep==2){
+
+showResult()
+
+}
+
+showStep()
+
+}
+
+}
+
+function prevStep(){
+
+if(currentStep>0){
+
+currentStep--
+
+showStep()
+
+}
+
+}
+
+function validateStep(){
+
+if(currentStep==0){
+
+const name=document.getElementById("name").value
+const birth=document.getElementById("birth").value
+
+if(name=="" || birth==""){
+alert("Vui lòng nhập đầy đủ thông tin")
+return false
+}
+
+}
+
+if(currentStep==1){
+
+const pass=document.getElementById("password").value
+const confirm=document.getElementById("confirm").value
+
+if(pass!==confirm){
+alert("Mật khẩu không khớp")
+return false
+}
+
+}
+
+return true
+
+}
+
+function showResult(){
+
+const name=document.getElementById("name").value
+const birth=document.getElementById("birth").value
+const gender=document.getElementById("gender").value
+const email=document.getElementById("email").value
+
+document.getElementById("result").innerHTML = `
+Họ tên: ${name} <br>
+Ngày sinh: ${birth} <br>
+Giới tính: ${gender} <br>
+Email: ${email}
+`
+
+}
+
+</script>
+
+</body>
+</html>

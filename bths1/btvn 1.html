@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Form Đăng Ký</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+}
+
+.container{
+    width:350px;
+    margin:50px auto;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+}
+
+h2{
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+}
+
+.password-box{
+    position:relative;
+}
+
+.toggle{
+    position:absolute;
+    right:10px;
+    top:10px;
+    cursor:pointer;
+}
+
+#strength{
+    font-weight:bold;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Đăng Ký</h2>
+
+<form>
+
+<label>Họ tên</label>
+<input type="text" id="fullname" maxlength="50">
+<div id="count">0/50</div>
+
+
+<label>Email</label>
+<input type="email" required>
+
+
+<label>Mật khẩu</label>
+
+<div class="password-box">
+<input type="password" id="password">
+<span class="toggle" onclick="togglePassword()">👁</span>
+</div>
+
+<div id="strength"></div>
+
+<button type="submit">Đăng ký</button>
+
+</form>
+
+</div>
+
+<script>
+
+const fullname = document.getElementById("fullname");
+const count = document.getElementById("count");
+
+fullname.addEventListener("input", function(){
+
+count.innerText = fullname.value.length + "/50";
+
+});
+
+const password = document.getElementById("password");
+const strength = document.getElementById("strength");
+
+password.addEventListener("input", function(){
+
+let value = password.value;
+
+if(value.length < 6){
+strength.innerText="Yếu";
+strength.style.color="red";
+}
+
+else if(value.match(/[a-z]/) && value.match(/[0-9]/)){
+strength.innerText="Trung bình";
+strength.style.color="orange";
+}
+
+if(value.match(/[A-Z]/) && value.match(/[0-9]/) && value.match(/[^a-zA-Z0-9]/) && value.length>=8){
+strength.innerText="Mạnh";
+strength.style.color="green";
+}
+
+});
+
+function togglePassword(){
+
+if(password.type==="password"){
+password.type="text";
+}else{
+password.type="password";
+}
+
+}
+
+</script>
+
+</body>
+</html>
