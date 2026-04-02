@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm nhân sự mới</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="popup-page-bg">
+
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Thêm hội thảo mới</h3>
+            <a href="index.html" class="close-btn"></a>
+        </div>
+        
+        <div class="modal-body">
+            <form id="addForm" novalidate action="index.html">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tenht">Tên hội thảo</label>
+                        <input type="text" id="tenht" name="tenht" required maxlength="30" placeholder="Nhập tên sự kiện">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="diengia">Diễn giả</label>
+                        <input type="text" id="diengia" name="diengia" required minlength="10" maxlength="10" placeholder="Họ tên diễn giả">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Ngày tổ chức</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label for="diadiem">Địa điểm</label>
+                    <input type="search" id="diadiem" name="diengia" placeholder="Hội trường / địa chỉ"
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <a href="index.html" class="btn btn-secondary">Hủy</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
